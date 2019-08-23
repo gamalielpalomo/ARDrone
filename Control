@@ -25,10 +25,11 @@ def descifrar(data):
 		land()
 	if input[0] == "forward":
 		moveX(float(input[1]))
+	if input[0] == "lateral":
+		moveY(float(input[1]))
 	if input[0] == "yaw":
 		moveYaw(float(input[1]))
 def listener():
-	rospy.init_node('Control', anonymous=True)
 	rospy.Subscriber("Instruction", String, descifrar)
 	print("[CONTROL] Listener started")
 	rospy.spin()
